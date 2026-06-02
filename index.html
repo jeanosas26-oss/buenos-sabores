@@ -125,9 +125,21 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
 .footer-social{display:flex;gap:.5rem;margin-top:.6rem}
 .footer-social a{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--text3);transition:all .2s}
 .footer-social a:hover{background:var(--red);border-color:var(--red);color:#fff}
+.social-btns{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
+.social-btn{display:flex;align-items:center;gap:.75rem;padding:8px 12px;border-radius:10px;text-decoration:none;transition:all .2s;border:1px solid transparent}
+.social-btn span{display:flex;flex-direction:column;line-height:1.2}
+.social-btn strong{font-size:.82rem;color:var(--text)}
+.social-btn small{font-size:.68rem;color:var(--text3)}
+.social-btn i{font-size:1.2rem;width:20px;text-align:center;flex-shrink:0}
+.social-btn.wa{background:rgba(37,211,102,.08);border-color:rgba(37,211,102,.2)}.social-btn.wa i{color:#25d366}.social-btn.wa:hover{background:rgba(37,211,102,.18);transform:translateX(3px)}
+.social-btn.ig{background:rgba(225,48,108,.08);border-color:rgba(225,48,108,.2)}.social-btn.ig i{color:#e1306c}.social-btn.ig:hover{background:rgba(225,48,108,.18);transform:translateX(3px)}
+.social-btn.tt{background:rgba(255,255,255,.05);border-color:var(--border2)}.social-btn.tt i{color:#fff}.social-btn.tt:hover{background:rgba(255,255,255,.1);transform:translateX(3px)}
+.social-btn.fb{background:rgba(24,119,242,.08);border-color:rgba(24,119,242,.2)}.social-btn.fb i{color:#1877f2}.social-btn.fb:hover{background:rgba(24,119,242,.18);transform:translateX(3px)}
 .footer-bottom{border-top:1px solid var(--border);padding-top:1.1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.73rem;color:var(--text3)}
-.chat-fab{position:fixed;bottom:24px;right:24px;z-index:500;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 24px rgba(30,125,52,.45);font-size:1.3rem;color:#fff;transition:transform .2s}
-.chat-fab:hover{transform:scale(1.1)}
+.chat-fab{position:fixed;bottom:24px;right:24px;z-index:500;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 30px rgba(30,125,52,.55),0 0 0 0 rgba(30,125,52,.4);font-size:1.4rem;color:#fff;transition:all .25s;animation:chatPulse 2.5s ease-in-out infinite}
+.chat-fab:hover{transform:scale(1.08);box-shadow:0 6px 36px rgba(30,125,52,.7)}
+@keyframes chatPulse{0%,100%{box-shadow:0 4px 30px rgba(30,125,52,.55),0 0 0 0 rgba(30,125,52,.4)}50%{box-shadow:0 4px 30px rgba(30,125,52,.55),0 0 0 12px rgba(30,125,52,0)}}
+@keyframes slideUpChat{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .chat-panel{display:none;position:fixed;bottom:90px;right:24px;z-index:500;width:330px;max-width:calc(100vw - 32px);background:var(--panel);border:1px solid var(--border2);border-radius:18px;box-shadow:var(--sh);overflow:hidden}
 .chat-head{background:linear-gradient(135deg,#0a2010,#1e7d34);padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between}
 .chat-av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin-right:.6rem;font-size:1rem}
@@ -150,6 +162,41 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
 .wa-float:hover{transform:scale(1.1)}
 @media(max-width:768px){.navbar{padding:.65rem 1rem}.nav-links{display:none}.hero{padding:6rem 1rem 3rem}.section{padding:3rem 1rem}.footer-top{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
 @media(max-width:480px){.footer-top{grid-template-columns:1fr}.catalogo-grid{grid-template-columns:repeat(2,1fr)}.promos-grid{grid-template-columns:1fr}}
+
+/* === DELIVERY SECTION === */
+.delivery-section{position:relative;padding:4rem 0;overflow:hidden;background:linear-gradient(135deg,#07070c 0%,#0a1a0f 50%,#07070c 100%);border-top:1px solid rgba(37,211,102,.15);border-bottom:1px solid rgba(37,211,102,.15)}
+.delivery-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(37,211,102,.07),transparent 70%);pointer-events:none}
+.delivery-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.4);border-radius:99px;padding:6px 18px;font-size:.75rem;font-weight:800;color:#4cde7a;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;animation:pulse-green 2s ease-in-out infinite}
+@keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.3)}50%{box-shadow:0 0 0 8px rgba(37,211,102,0)}}
+.delivery-header{text-align:center;margin-bottom:2.5rem}
+.delivery-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,7vw,4rem);letter-spacing:2px;line-height:1;margin-bottom:.8rem}
+.delivery-title span{color:#4cde7a;text-shadow:0 0 40px rgba(76,222,122,.4)}
+.delivery-sub{color:var(--text2);font-size:1rem;max-width:500px;margin:0 auto}
+.delivery-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+@media(max-width:760px){.delivery-grid{grid-template-columns:1fr}}
+.delivery-info-cards{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.del-card{background:rgba(255,255,255,.04);border:1px solid rgba(37,211,102,.15);border-radius:14px;padding:1rem;display:flex;align-items:center;gap:.9rem;transition:all .2s}
+.del-card:hover{background:rgba(37,211,102,.06);border-color:rgba(37,211,102,.3);transform:translateY(-2px)}
+.del-ico{width:40px;height:40px;border-radius:10px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#4cde7a;flex-shrink:0}
+.del-card strong{display:block;font-size:.9rem;color:var(--text);font-weight:700}
+.del-card span{font-size:.72rem;color:var(--text3)}
+.delivery-calc-wrap{position:sticky;top:90px}
+.delivery-calc{background:var(--panel);border:1px solid rgba(37,211,102,.25);border-radius:20px;padding:1.6rem;box-shadow:0 8px 40px rgba(37,211,102,.1)}
+.calc-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1.5px;color:#4cde7a;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.calc-field label{font-size:.8rem;color:var(--text2);font-weight:600;display:block;margin-bottom:.7rem}
+.calc-slider-wrap{display:flex;align-items:center;gap:1rem;margin-bottom:.4rem}
+.calc-slider{flex:1;-webkit-appearance:none;height:6px;border-radius:99px;background:linear-gradient(to right,#4cde7a 0%,#4cde7a 40%,var(--dark3) 40%);outline:none;cursor:pointer}
+.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#4cde7a;box-shadow:0 0 0 4px rgba(76,222,122,.2);cursor:pointer;transition:all .15s}
+.calc-slider::-webkit-slider-thumb:hover{box-shadow:0 0 0 8px rgba(76,222,122,.25)}
+.calc-km-display{background:rgba(76,222,122,.12);border:1px solid rgba(76,222,122,.3);border-radius:8px;padding:6px 14px;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:#4cde7a;min-width:80px;text-align:center}
+.calc-marks{display:flex;justify-content:space-between;font-size:.65rem;color:var(--text3);margin-bottom:1rem;padding:0 2px}
+.calc-result{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-top:.5rem}
+.calc-breakdown{display:flex;flex-direction:column;gap:.5rem}
+.calc-row{display:flex;justify-content:space-between;font-size:.82rem;color:var(--text2)}
+.calc-row span:last-child{color:var(--text);font-weight:600}
+.calc-total{display:flex;justify-content:space-between;font-size:1rem;font-weight:800;color:var(--text);border-top:1px solid var(--border);padding-top:.5rem;margin-top:.3rem}
+.calc-total span:last-child{color:#4cde7a;font-family:'Bebas Neue',sans-serif;font-size:1.4rem}
+
 </style>
 </head>
 <body>
@@ -162,6 +209,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
   <div class="nav-links">
     <a href="#promos">🔥 Promos</a>
     <a href="#ofertas">🏷️ Ofertas</a>
+    <a href="#delivery" style="color:#4cde7a"><i class="fas fa-motorcycle"></i> Delivery</a>
     <a href="#catalogo">📦 Catálogo</a>
     <a href="#info">📍 Info</a>
   </div>
@@ -251,10 +299,45 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
   </div>
 </div>
 
-<div class="cta-banner">
-  <h2>📦 ¿QUERÉS DELIVERY A TU CASA?</h2>
-  <p>Pedí por WhatsApp y te lo llevamos · Radio 5km · Mínimo $3.000</p>
-  <a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20pedir%20delivery%20🛒" target="_blank" rel="noopener" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Pedir delivery ahora</a>
+<!-- DELIVERY SECTION -->
+<div class="delivery-section" id="delivery">
+  <div class="delivery-bg"></div>
+  <div class="section" style="position:relative;z-index:1">
+    <div class="delivery-header">
+      <div class="delivery-badge"><i class="fas fa-motorcycle"></i> DELIVERY DISPONIBLE</div>
+      <h2 class="delivery-title">🛵 Llevamos tu pedido<br><span>a domicilio</span></h2>
+      <p class="delivery-sub">Rápido, seguro y desde la comodidad de tu casa. Zona Los Corralitos y alrededores.</p>
+    </div>
+    <div class="delivery-grid">
+      <div class="delivery-info-cards">
+        <div class="del-card"><div class="del-ico"><i class="fas fa-dollar-sign"></i></div><div><strong>Desde $2.000</strong><span>Costo base de delivery</span></div></div>
+        <div class="del-card"><div class="del-ico"><i class="fas fa-road"></i></div><div><strong>+$1.000 por km</strong><span>Cada kilómetro extra</span></div></div>
+        <div class="del-card"><div class="del-ico"><i class="fas fa-map-marker-alt"></i></div><div><strong>Hasta 5 km</strong><span>Radio de cobertura</span></div></div>
+        <div class="del-card"><div class="del-ico"><i class="fas fa-clock"></i></div><div><strong>Lun – Sáb 8–21hs</strong><span>Horario de envíos</span></div></div>
+      </div>
+      <div class="delivery-calc-wrap">
+        <div class="delivery-calc">
+          <div class="calc-title"><i class="fas fa-calculator"></i> Calculá tu delivery</div>
+          <div class="calc-field">
+            <label>¿A cuántos km estás del local?</label>
+            <div class="calc-slider-wrap">
+              <input type="range" id="deliveryKm" min="0.5" max="5" step="0.5" value="2" oninput="calcDelivery()" class="calc-slider"/>
+              <div class="calc-km-display"><span id="deliveryKmVal">2</span> km</div>
+            </div>
+            <div class="calc-marks"><span>0.5km</span><span>1km</span><span>2km</span><span>3km</span><span>4km</span><span>5km</span></div>
+          </div>
+          <div class="calc-result" id="calcResult">
+            <div class="calc-breakdown">
+              <div class="calc-row"><span>Costo base</span><span>$2.000</span></div>
+              <div class="calc-row" id="calcExtraRow"><span>Km extra (1km × $1.000)</span><span id="calcExtra">$1.000</span></div>
+              <div class="calc-total"><span>Total delivery</span><span id="calcTotal">$3.000</span></div>
+            </div>
+          </div>
+          <a id="calcWaBtn" href="https://wa.me/5492617617618?text=Hola!%20Quiero%20pedir%20delivery%20🛒%20(estoy%20a%202km)" target="_blank" rel="noopener" class="btn btn-wa" style="width:100%;justify-content:center;margin-top:1rem;padding:14px"><i class="fab fa-whatsapp"></i> Pedir ahora por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="ofertas-wrap" id="ofertas">
@@ -293,7 +376,14 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
     <div class="info-grid">
       <div class="info-card"><div class="info-card-ico" style="background:rgba(212,30,30,.1)"><i class="fas fa-map-marker-alt" style="color:var(--red)"></i></div><h3>Dirección</h3><p>Severo del Castillo y Durand<br>Los Corralitos, Mendoza<br><a href="https://maps.google.com/?q=Los+Corralitos+Mendoza" target="_blank" rel="noopener" style="color:var(--red3)"><i class="fas fa-directions"></i> Cómo llegar</a></p></div>
       <div class="info-card"><div class="info-card-ico" style="background:rgba(255,214,0,.1)"><i class="fas fa-clock" style="color:var(--gold)"></i></div><h3>Horarios</h3><p>Lunes a Sábado: 8:00 – 22:00<br>Domingos: 9:00 – 20:00<br><span id="estadoLocal" style="color:var(--green3);font-size:.78rem">✅ Abierto ahora</span></p></div>
-      <div class="info-card"><div class="info-card-ico" style="background:rgba(37,211,102,.1)"><i class="fab fa-whatsapp" style="color:#25d366"></i></div><h3>Contacto</h3><p><a href="https://wa.me/5492617617618" target="_blank" rel="noopener">📱 261 761-7618</a><br><a href="https://instagram.com/buenos.sabores.supermarket" target="_blank" rel="noopener">📸 @buenos.sabores.supermarket</a><br><a href="https://tiktok.com/@buenos.sabores.2" target="_blank" rel="noopener">🎵 @buenos.sabores.2</a></p></div>
+      <div class="info-card"><div class="info-card-ico" style="background:rgba(37,211,102,.1)"><i class="fab fa-whatsapp" style="color:#25d366"></i></div><h3>Contacto directo</h3>
+        <div class="social-btns">
+          <a href="https://wa.me/5492617617618" target="_blank" rel="noopener" class="social-btn wa"><i class="fab fa-whatsapp"></i><span><strong>WhatsApp</strong><small>261 761-7618</small></span></a>
+          <a href="https://instagram.com/buenos.sabores.supermarket" target="_blank" rel="noopener" class="social-btn ig"><i class="fab fa-instagram"></i><span><strong>Instagram</strong><small>@buenos.sabores.supermarket</small></span></a>
+          <a href="https://tiktok.com/@buenos.sabores.2" target="_blank" rel="noopener" class="social-btn tt"><i class="fab fa-tiktok"></i><span><strong>TikTok</strong><small>@buenos.sabores.2</small></span></a>
+          <a href="https://facebook.com/BuenosSabores" target="_blank" rel="noopener" class="social-btn fb"><i class="fab fa-facebook"></i><span><strong>Facebook</strong><small>Buenos Sabores</small></span></a>
+        </div>
+      </div>
       <div class="info-card"><div class="info-card-ico" style="background:rgba(168,85,247,.1)"><i class="fas fa-credit-card" style="color:#a855f7"></i></div><h3>Formas de pago</h3><p>💵 Efectivo<br>💳 Débito y crédito<br>📱 Mercado Pago · Modo<br>🏦 Transferencia bancaria</p></div>
     </div>
   </div>
@@ -444,7 +534,20 @@ function renderCatalogoConProds(prods, q){
 // setCat and filtrarCatalogo defined above
 
 let chatOpen=false;
-function toggleChat(){chatOpen=!chatOpen;document.getElementById('chatPanel').style.display=chatOpen?'block':'none';if(chatOpen)document.getElementById('chatInput').focus();}
+function toggleChat(){
+  chatOpen=!chatOpen;
+  const panel=document.getElementById('chatPanel');
+  const fab=document.getElementById('chatFab');
+  if(chatOpen){
+    panel.style.display='block';
+    panel.style.animation='slideUpChat .25s ease';
+    setTimeout(()=>document.getElementById('chatInput').focus(),100);
+    fab.style.transform='scale(0.9) rotate(15deg)';
+  } else {
+    panel.style.display='none';
+    fab.style.transform='';
+  }
+}
 function chatSug(t){document.getElementById('chatInput').value=t;sendChat();}
 async function sendChat(){
   const inp=document.getElementById('chatInput');
@@ -459,12 +562,45 @@ async function sendChat(){
   const of=(db.productos||[]).filter(p=>p.ofe==='si'&&p.pre>0).slice(0,10).map(p=>p.nom+' $'+monFmt(p.pre)).join(', ');
   try{
     const _key = localStorage.getItem('bs_anthropic_key')||'';
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':_key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:250,system:'Sos Sabori, asistente de Buenos Sabores Supermarket & Drugstore en Los Corralitos, Mendoza. Respondés en español argentino informal, amable y muy breve (máx 3 líneas). Tenemos '+prods.length+' productos. Ofertas: '+(of||'ver en la web')+'. Horario: Lun-Sáb 8-22, Dom 9-20. WhatsApp: 2617617618. Delivery radio 5km mínimo $3000. Pagos: efectivo, débito, crédito, Mercado Pago, Modo. Para pedidos invitá siempre al WhatsApp.',messages:[{role:'user',content:msg}]})});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':_key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:250,system:'Sos Sabori, asistente virtual de Buenos Sabores Supermarket & Drugstore en Los Corralitos, Mendoza. Respondés en español argentino informal, amable y conciso. Tenemos '+prods.length+' productos. Ofertas: '+(of||'ver en la web')+'. Horario: Lun-Sáb 8-22, Dom 9-20. WhatsApp: 2617617618.\n\nDELIVERY: Costo base $2.000 (hasta 1km). Cada km extra suma $1.000. Ej: a 2km = $3.000, a 3km = $4.000, a 4km = $5.000, a 5km = $6.000 (máximo 5km). Si alguien pregunta cuánto cuesta el delivery a X km, calculalo y respondé el monto exacto. Pagos: efectivo, débito, crédito, Mercado Pago, Modo, transferencia. Para pedidos invitá siempre a WhatsApp. Si preguntan por el delivery usá la calculadora en la web.',messages:[{role:'user',content:msg}]})});
     const data=await res.json();
     document.getElementById(tid).innerHTML=(data.content?.[0]?.text||'Escribinos al WhatsApp 2617617618 😊').replace(/\n/g,'<br>');
   }catch(e){document.getElementById(tid).textContent='Escribinos al WhatsApp 2617617618 para consultas 😊';}
   msgs.scrollTop=msgs.scrollHeight;
 }
+function calcDelivery(){
+  const km = parseFloat(document.getElementById('deliveryKm').value);
+  document.getElementById('deliveryKmVal').textContent = km;
+  
+  // Update slider gradient
+  const pct = ((km - 0.5) / (5 - 0.5)) * 100;
+  document.getElementById('deliveryKm').style.background = 
+    'linear-gradient(to right,#4cde7a 0%,#4cde7a '+pct+'%,var(--dark3) '+pct+'%)';
+  
+  const base = 2000;
+  const extraKm = Math.max(0, km - 1);
+  const extra = Math.round(extraKm * 1000 / 500) * 500; // round to 500
+  const total = base + extra;
+  
+  const extraRow = document.getElementById('calcExtraRow');
+  if(extraKm > 0){
+    extraRow.style.display='flex';
+    document.getElementById('calcExtraRow').querySelector('span').textContent = 
+      'Km extra ('+extraKm.toFixed(1)+'km × $1.000)';
+    document.getElementById('calcExtra').textContent = '$'+extra.toLocaleString('es-AR');
+  } else {
+    extraRow.style.display='none';
+  }
+  
+  document.getElementById('calcTotal').textContent = '$'+total.toLocaleString('es-AR');
+  
+  const waBtn = document.getElementById('calcWaBtn');
+  const msg = encodeURIComponent('Hola! Quiero pedir delivery 🛒 (estoy a '+km+'km, delivery $'+total.toLocaleString('es-AR')+')');
+  waBtn.href = 'https://wa.me/5492617617618?text='+msg;
+}
+// Init slider
+document.addEventListener('DOMContentLoaded', ()=>{ if(document.getElementById('deliveryKm')) calcDelivery(); });
+
 function irAGestion(){
   window.location.href = './gestion.html';
 }
