@@ -363,36 +363,19 @@ function getDB(){
 }
 
 async function cargarProductosWeb(){
-  // 1. Try Netlify Blobs (auto-synced from gestion when Excel is imported)
+  // 1. Try static productos.json (GitHub Pages)
   try {
-    const res = await fetch('/.netlify/blobs/productos.json?t=' + Date.now(), {cache:'no-store'});
+    const res = await fetch('./productos.json?t=' + Date.now(), {cache:'no-store'});
     if(res.ok){
       const prods = await res.json();
       if(Array.isArray(prods) && prods.length > 0){
         _productosCache = prods;
-        try {
-          const db = getDB();
-          db.productos = prods;
-          localStorage.setItem(DB_KEY, JSON.stringify(db));
-        } catch(e){}
         return prods;
       }
     }
   } catch(e) {}
 
-  // 2. Try static productos.json (fallback for first deploy)
-  try {
-    const res2 = await fetch('./productos.json?t=' + Date.now(), {cache:'no-store'});
-    if(res2.ok){
-      const prods2 = await res2.json();
-      if(Array.isArray(prods2) && prods2.length > 0){
-        _productosCache = prods2;
-        return prods2;
-      }
-    }
-  } catch(e) {}
-
-  // 3. Fall back to localStorage (same browser as gestion)
+  // 2. Fall back to localStorage (same browser as gestion)
   const db = getDB();
   const local = db.productos || [];
   if(local.length > 0){
