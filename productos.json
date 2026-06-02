@@ -1,89 +1,5 @@
 [
   {
-    "id": 1,
-    "nom": "Leche La Serenísima 1L",
-    "cat": "Lácteos",
-    "pre": 890,
-    "prea": 1100,
-    "costo": 620,
-    "sto": 42,
-    "stomin": 10,
-    "cod": "7790045000012",
-    "des": "",
-    "ofe": "si",
-    "prov": "La Serenísima"
-  },
-  {
-    "id": 2,
-    "nom": "Aceite Cocinero 900ml",
-    "cat": "Almacén",
-    "pre": 2350,
-    "prea": 2800,
-    "costo": 1650,
-    "sto": 28,
-    "stomin": 8,
-    "cod": "7792300001234",
-    "des": "",
-    "ofe": "si",
-    "prov": ""
-  },
-  {
-    "id": 3,
-    "nom": "Coca-Cola 2.25L",
-    "cat": "Bebidas",
-    "pre": 1450,
-    "prea": 1800,
-    "costo": 980,
-    "sto": 60,
-    "stomin": 15,
-    "cod": "7790895000023",
-    "des": "",
-    "ofe": "si",
-    "prov": "Coca-Cola"
-  },
-  {
-    "id": 4,
-    "nom": "Yerba Amanda 1kg",
-    "cat": "Almacén",
-    "pre": 3200,
-    "prea": 3900,
-    "costo": 2100,
-    "sto": 35,
-    "stomin": 10,
-    "cod": "7790387000011",
-    "des": "",
-    "ofe": "si",
-    "prov": ""
-  },
-  {
-    "id": 5,
-    "nom": "Jabón Dove x3",
-    "cat": "Higiene Personal",
-    "pre": 2100,
-    "prea": 2600,
-    "costo": 1400,
-    "sto": 20,
-    "stomin": 5,
-    "cod": "7791083000045",
-    "des": "",
-    "ofe": "si",
-    "prov": ""
-  },
-  {
-    "id": 6,
-    "nom": "Arroz Gallo Oro 1kg",
-    "cat": "Almacén",
-    "pre": 980,
-    "prea": 1200,
-    "costo": 650,
-    "sto": 55,
-    "stomin": 15,
-    "cod": "7790895000099",
-    "des": "",
-    "ofe": "si",
-    "prov": ""
-  },
-  {
     "id": 7,
     "nom": "Detergente Magistral 750ml",
     "cat": "Limpieza",
@@ -6745,7 +6661,7 @@
     "cod": "7790060023684",
     "prov": "ACCESORIOS",
     "des": "",
-    "ofe": "no"
+    "ofe": "si"
   },
   {
     "id": 1780411735984.2295,
