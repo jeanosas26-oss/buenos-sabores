@@ -461,8 +461,7 @@ async function sendChat(){
     const _key = localStorage.getItem('bs_anthropic_key')||'';
     const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':_key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:250,system:'Sos Sabori, asistente de Buenos Sabores Supermarket & Drugstore en Los Corralitos, Mendoza. Respondés en español argentino informal, amable y muy breve (máx 3 líneas). Tenemos '+prods.length+' productos. Ofertas: '+(of||'ver en la web')+'. Horario: Lun-Sáb 8-22, Dom 9-20. WhatsApp: 2617617618. Delivery radio 5km mínimo $3000. Pagos: efectivo, débito, crédito, Mercado Pago, Modo. Para pedidos invitá siempre al WhatsApp.',messages:[{role:'user',content:msg}]})});
     const data=await res.json();
-    document.getElementById(tid).innerHTML=(data.content?.[0]?.text||'Escribinos al WhatsApp 2617617618 😊').replace(/
-/g,'<br>');
+    document.getElementById(tid).innerHTML=(data.content?.[0]?.text||'Escribinos al WhatsApp 2617617618 😊').replace(/\n/g,'<br>');
   }catch(e){document.getElementById(tid).textContent='Escribinos al WhatsApp 2617617618 para consultas 😊';}
   msgs.scrollTop=msgs.scrollHeight;
 }
