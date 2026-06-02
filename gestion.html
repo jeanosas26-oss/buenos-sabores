@@ -772,16 +772,16 @@ table.gtbl .muted{color:var(--text3)}
       <div class="card-title"><i class="fas fa-globe"></i> Sincronización Web Automática</div>
       <div id="netlify-sync-status" style="margin-bottom:.9rem"></div>
       <div style="background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.2);border-radius:var(--radius2);padding:.8rem 1rem;font-size:.82rem;color:#93c5fd;margin-bottom:1rem;line-height:1.6">
-        <strong>Configurá una vez</strong> y los productos se sincronizan automáticamente con la web cada vez que importás un Excel. Sin subir archivos manualmente.
+        <strong>Configurá una vez</strong> — cada vez que importés un Excel, los productos se actualizan solos en la web. Sin tocar nada más.
       </div>
       <div style="display:flex;flex-direction:column;gap:.8rem;margin-bottom:1rem">
         <div class="fg">
-          <label>Netlify Site ID <a href="https://app.netlify.com/sites/buenos-sabores/settings/general" target="_blank" style="color:var(--blue);font-size:.68rem;margin-left:.4rem"><i class="fas fa-external-link-alt"></i> Dónde encontrarlo</a></label>
-          <input id="cfg-netlify-site" placeholder="ej: abc12345-1234-..." style="font-family:'DM Mono',monospace"/>
+          <label>Usuario/Repositorio GitHub</label>
+          <input id="cfg-netlify-site" placeholder="jeanosas26-oss/buenos-sabores" style="font-family:'DM Mono',monospace" value="jeanosas26-oss/buenos-sabores"/>
         </div>
         <div class="fg">
-          <label>Netlify Access Token <a href="https://app.netlify.com/user/applications#personal-access-tokens" target="_blank" style="color:var(--blue);font-size:.68rem;margin-left:.4rem"><i class="fas fa-external-link-alt"></i> Crear token</a></label>
-          <input id="cfg-netlify-token" type="password" placeholder="nfp_..."/>
+          <label>GitHub Personal Access Token <a href="https://github.com/settings/tokens/new?scopes=repo&description=Buenos+Sabores" target="_blank" style="color:var(--blue);font-size:.68rem;margin-left:.4rem"><i class="fas fa-external-link-alt"></i> Crear token (clic acá)</a></label>
+          <input id="cfg-netlify-token" type="password" placeholder="ghp_..."/>
         </div>
       </div>
       <div class="btn-row">
@@ -3351,31 +3351,41 @@ const _origImportarProductosXLS = importarProductosXLS;
 
 
 // ═══════════════════════════════════════════════════════
-//  SINCRONIZACIÓN AUTOMÁTICA WEB — NETLIFY BLOBS
+//  SINCRONIZACIÓN AUTOMÁTICA WEB — GITHUB API
+//  Cuando importás Excel → productos.json se actualiza
+//  en GitHub automáticamente → web se actualiza sola
 // ═══════════════════════════════════════════════════════
-const NETLIFY_CFG_KEY = 'bs_netlify_cfg';
+const GITHUB_CFG_KEY = 'bs_github_cfg';
 
-function getNetlifyCfg(){
-  try{ return JSON.parse(localStorage.getItem(NETLIFY_CFG_KEY)||'{}'); }catch(e){return{};}
+function getNetlifyCfg(){ // kept for compatibility
+  return {};
+}
+
+function getGithubCfg(){
+  try{ return JSON.parse(localStorage.getItem(GITHUB_CFG_KEY)||'{}'); }catch(e){return{};}
 }
 
 function guardarConfigNetlify(){
-  const siteId = document.getElementById('cfg-netlify-site').value.trim();
-  const token  = document.getElementById('cfg-netlify-token').value.trim();
-  if(!siteId || !token){ alert('Completá Site ID y Token.'); return; }
-  localStorage.setItem(NETLIFY_CFG_KEY, JSON.stringify({siteId, token}));
+  const token = document.getElementById('cfg-netlify-token').value.trim();
+  const user  = document.getElementById('cfg-netlify-site').value.trim(); // reused as github user/repo
+  if(!token){ alert('Ingresá el Token de GitHub.'); return; }
+  // Parse user/repo from site field or use defaults
+  const parts = user.split('/');
+  const ghUser = parts[0] || 'jeanosas26-oss';
+  const ghRepo = parts[1] || 'buenos-sabores';
+  localStorage.setItem(GITHUB_CFG_KEY, JSON.stringify({token, user: ghUser, repo: ghRepo}));
   flashEl('cfg-ok');
-  mostrarEstadoSync('✅ Configuración guardada. Probá la conexión.','green');
+  mostrarEstadoSync('✅ Token de GitHub guardado. Probá la conexión.','green');
 }
 
 function cargarConfigNetlify(){
-  const cfg = getNetlifyCfg();
-  if(cfg.siteId) document.getElementById('cfg-netlify-site').value = cfg.siteId;
-  if(cfg.token)  document.getElementById('cfg-netlify-token').value = cfg.token;
-  if(cfg.siteId && cfg.token){
-    mostrarEstadoSync('✅ Sincronización configurada — los productos se actualizan automáticamente al importar Excel.','green');
+  const cfg = getGithubCfg();
+  if(cfg.user && cfg.repo) document.getElementById('cfg-netlify-site').value = cfg.user+'/'+cfg.repo;
+  if(cfg.token) document.getElementById('cfg-netlify-token').value = cfg.token;
+  if(cfg.token){
+    mostrarEstadoSync('✅ Sincronización activa — los productos se actualizan solos en la web al importar Excel.','green');
   } else {
-    mostrarEstadoSync('⚠️ Configurá el Site ID y Token para activar la sincronización automática.','orange');
+    mostrarEstadoSync('⚠️ Falta el Token de GitHub. Configuralo para activar la sincronización automática.','orange');
   }
 }
 
@@ -3389,77 +3399,92 @@ function mostrarEstadoSync(msg, color){
 }
 
 async function sincronizarWebAhora(){
-  const cfg = getNetlifyCfg();
-  if(!cfg.siteId || !cfg.token){
-    mostrarEstadoSync('❌ Primero configurá el Site ID y Token en Parámetros → Sincronización Web.','red');
+  const cfg = getGithubCfg();
+  if(!cfg.token){
+    mostrarEstadoSync('❌ Configurá el Token de GitHub en Parámetros → Sincronización Web.','red');
     goTo('config');
-    setTimeout(()=>document.getElementById('cfg-netlify-site').focus(), 300);
     return false;
   }
   const prods = DB.productos || [];
   if(!prods.length){ return false; }
 
+  const user = cfg.user || 'jeanosas26-oss';
+  const repo = cfg.repo || 'buenos-sabores';
+  const path = 'productos.json';
+  const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents/${path}`;
+
   try {
-    const body = JSON.stringify(prods);
-    const res = await fetch(
-      `https://api.netlify.com/api/v1/blobs/${cfg.siteId}/main/productos.json`,
-      {
-        method: 'PUT',
+    // Get current file SHA (needed to update)
+    let sha = '';
+    try {
+      const getRes = await fetch(apiUrl, {
         headers: {
           'Authorization': `Bearer ${cfg.token}`,
-          'Content-Type': 'application/json',
-        },
-        body
+          'Accept': 'application/vnd.github.v3+json',
+        }
+      });
+      if(getRes.ok){
+        const fileData = await getRes.json();
+        sha = fileData.sha || '';
       }
-    );
-    if(res.ok || res.status === 204 || res.status === 200){
+    } catch(e){}
+
+    // Update file via GitHub API
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(prods, null, 2))));
+    const body = {
+      message: `Actualizar productos.json — ${prods.length} productos`,
+      content,
+      ...(sha ? {sha} : {})
+    };
+
+    const putRes = await fetch(apiUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${cfg.token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body)
+    });
+
+    if(putRes.ok || putRes.status === 201){
       return true;
     } else {
-      const err = await res.text();
-      console.error('Netlify Blobs error:', res.status, err);
+      const err = await putRes.text();
+      console.error('GitHub API error:', putRes.status, err);
       return false;
     }
   } catch(e){
-    console.error('Sync error:', e);
+    console.error('GitHub sync error:', e);
     return false;
   }
 }
 
 async function testNetlifySync(){
-  const cfg = getNetlifyCfg();
-  if(!cfg.siteId || !cfg.token){
-    document.getElementById('netlify-test-result').innerHTML = '<div style="color:var(--red3);font-size:.83rem;font-weight:600">❌ Primero ingresá el Site ID y Token.</div>';
+  const cfg = getGithubCfg();
+  if(!cfg.token){
+    document.getElementById('netlify-test-result').innerHTML = '<div style="color:var(--red3);font-size:.83rem;font-weight:600">❌ Primero ingresá el Token de GitHub.</div>';
     return;
   }
-  document.getElementById('netlify-test-result').innerHTML = '<div style="color:var(--text3);font-size:.83rem"><i class="fas fa-circle-notch fa-spin"></i> Probando conexión...</div>';
-
-  // Write a test blob
+  document.getElementById('netlify-test-result').innerHTML = '<div style="color:var(--text3);font-size:.83rem"><i class="fas fa-circle-notch fa-spin"></i> Probando conexión con GitHub...</div>';
   try {
-    const res = await fetch(
-      `https://api.netlify.com/api/v1/blobs/${cfg.siteId}/main/test-bs.json`,
-      {
-        method: 'PUT',
-        headers: {
-          'Authorization': `Bearer ${cfg.token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({test: true, ts: Date.now()})
-      }
-    );
-    if(res.ok || res.status === 204 || res.status === 200){
-      document.getElementById('netlify-test-result').innerHTML = '<div style="color:var(--green3);font-size:.83rem;font-weight:600">✅ ¡Conexión exitosa! La sincronización automática está activa.</div>';
-      mostrarEstadoSync('✅ Sincronización activa — productos se actualizan automáticamente al importar Excel.','green');
-      // Now sync products
+    const user = cfg.user || 'jeanosas26-oss';
+    const repo = cfg.repo || 'buenos-sabores';
+    const res = await fetch(`https://api.github.com/repos/${user}/${repo}`, {
+      headers: { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if(res.ok){
+      document.getElementById('netlify-test-result').innerHTML = '<div style="color:var(--green3);font-size:.83rem;font-weight:600">✅ ¡Conexión con GitHub exitosa! Sincronizando productos...</div>';
+      mostrarEstadoSync('✅ Conectado a GitHub — los productos se actualizan solos al importar Excel.','green');
       const synced = await sincronizarWebAhora();
       if(synced){
-        document.getElementById('netlify-test-result').innerHTML += '<div style="color:var(--green3);font-size:.83rem;font-weight:600;margin-top:.3rem">✅ '+( DB.productos?.length||0).toLocaleString('es-AR')+' productos sincronizados con la web.</div>';
+        document.getElementById('netlify-test-result').innerHTML += '<div style="color:var(--green3);font-size:.83rem;font-weight:600;margin-top:.3rem">✅ '+(DB.productos?.length||0).toLocaleString('es-AR')+' productos actualizados en la web.</div>';
       }
     } else {
-      const errTxt = await res.text();
-      document.getElementById('netlify-test-result').innerHTML = `<div style="color:var(--red3);font-size:.83rem;font-weight:600">❌ Error ${res.status}. Verificá que el Token y Site ID sean correctos.<br><small style="font-weight:400;color:var(--text3)">${errTxt.slice(0,200)}</small></div>`;
+      document.getElementById('netlify-test-result').innerHTML = `<div style="color:var(--red3);font-size:.83rem;font-weight:600">❌ Error ${res.status}. Verificá el token.<br><small style="color:var(--text3)">Asegurate que el token tenga permiso "repo"</small></div>`;
     }
   } catch(e){
-    document.getElementById('netlify-test-result').innerHTML = `<div style="color:var(--red3);font-size:.83rem;font-weight:600">❌ Sin conexión o token inválido: ${e.message}</div>`;
+    document.getElementById('netlify-test-result').innerHTML = `<div style="color:var(--red3);font-size:.83rem;font-weight:600">❌ Error: ${e.message}</div>`;
   }
 }
 
