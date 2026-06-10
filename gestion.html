@@ -572,6 +572,7 @@ table.gtbl .muted{color:var(--text3)}
       <button class="btn btn-red btn-sm" onclick="goTo('add-articulo')"><i class="fas fa-plus"></i> Nuevo</button>
       <label class="btn btn-blue btn-sm" style="cursor:pointer" title="Importar Excel de productos"><i class="fas fa-file-upload"></i> Importar Excel<input type="file" accept=".xlsx,.xls,.csv" onchange="importarProductosXLS(this)" style="display:none"/></label>
       <button class="btn btn-green btn-sm" onclick="exportarProductosJSON()" title="Descargar productos.json para subir a Netlify"><i class="fas fa-globe"></i> Actualizar Web</button>
+      <button class="btn btn-sm" style="background:#c0392b;color:#fff" onclick="resetearProductos()" title="Borrar TODOS los productos y empezar de cero"><i class="fas fa-trash-alt"></i> Resetear productos</button>
       <button class="btn btn-ghost btn-sm" onclick="exportArticulosXLS()" title="Exportar Excel"><i class="fas fa-file-excel"></i></button>
       <button class="btn btn-ghost btn-sm" onclick="abrirGuiaImport('productos')" title="Ver formato requerido"><i class="fas fa-question-circle"></i></button>
     </div>
@@ -2870,6 +2871,14 @@ function getNum(row, colIdx, def=0){
   if(!raw) return def;
   const n = parseFloat(raw.replace(/[^0-9.,\-]/g,'').replace(',','.'));
   return isNaN(n) ? def : n;
+}
+
+function resetearProductos(){
+  if(!confirm('⚠️ ¿Seguro que querés BORRAR todos los productos?\n\nEsta acción no se puede deshacer.\nDespués importá tu Excel nuevo.')) return;
+  DB.productos = [];
+  guardarDB();
+  renderArticulos(DB.productos);
+  alert('✅ Productos borrados. Ahora importá tu Excel nuevo.');
 }
 
 function importarProductosXLS(input){
