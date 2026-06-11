@@ -238,8 +238,8 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
   </div>
   <div class="hero-chips">
     <span class="chip"><i class="fas fa-truck" style="color:var(--red)"></i> Delivery disponible</span>
-    <span class="chip"><i class="fas fa-clock" style="color:var(--gold)"></i> Lun–Sáb 8:30–00:00</span>
-    <span class="chip"><i class="fas fa-sun" style="color:var(--gold)"></i> Dom 10–22hs</span>
+    <span class="chip" style="background:rgba(255,214,0,.12);border-color:rgba(255,214,0,.4);padding:9px 20px;font-size:.92rem;font-weight:700;color:var(--gold)"><i class="fas fa-clock" style="color:var(--gold);font-size:1rem"></i> Lun–Sáb 8:30–00:00</span>
+    <span class="chip" style="background:rgba(255,214,0,.12);border-color:rgba(255,214,0,.4);padding:9px 20px;font-size:.92rem;font-weight:700;color:var(--gold)"><i class="fas fa-sun" style="color:var(--gold);font-size:1rem"></i> Dom 10:00–22:00</span>
     <span class="chip"><i class="fab fa-whatsapp" style="color:#25d366"></i> Pedidos por WhatsApp</span>
   </div>
 </div>
@@ -273,6 +273,45 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
   </div>
   </div>
 </div>
+
+<!-- FLYER MAYORISTA -->
+<div style="background:linear-gradient(135deg,#07070c 0%,#0a0e1a 50%,#07070c 100%);border-top:2px solid rgba(255,214,0,.3);border-bottom:2px solid rgba(255,214,0,.3);padding:3rem 1.5rem;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(255,214,0,.06),transparent 70%);pointer-events:none"></div>
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,214,0,.12);border:1px solid rgba(255,214,0,.4);border-radius:99px;padding:6px 20px;font-size:.75rem;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem">
+        <i class="fas fa-boxes"></i> VENTA MAYORISTA
+      </div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,6vw,3.5rem);letter-spacing:2px;color:var(--text);line-height:1;margin-bottom:.6rem">🏪 ¿Comprás en cantidad?<br><span style="color:var(--gold)">Tenemos precio mayorista</span></h2>
+      <p style="color:var(--text2);font-size:1rem;max-width:600px;margin:0 auto">Comprá más y ahorrá más. Ideal para revendedores, eventos y comercios.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-bottom:2rem">
+      <!-- Card bulto cerrado -->
+      <div style="background:var(--panel);border:1px solid rgba(255,214,0,.25);border-radius:18px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(255,214,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,214,0,.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📦</div>
+        <div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;color:var(--gold);margin-bottom:.3rem">BULTO CERRADO</h3>
+          <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem">Comprando por <strong style="color:var(--text)">bulto o por caja cerrada</strong> obtenés un <strong style="color:var(--gold)">10% de descuento</strong> en todos nuestros productos.</p>
+          <div style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:.5rem .9rem;display:inline-block;font-size:.78rem;font-weight:700;color:var(--gold)">🏷️ -10% OFF por bulto cerrado</div>
+        </div>
+      </div>
+      <!-- Card Fernet + Coca -->
+      <div style="background:var(--panel);border:1px solid rgba(37,211,102,.25);border-radius:18px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(37,211,102,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">🍾</div>
+        <div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;color:var(--green3);margin-bottom:.3rem">FERNET + COCA 2.5L</h3>
+          <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem">Venta mayorista de <strong style="color:var(--text)">Fernet y Coca-Cola 2.5L</strong> por mayor. Precios especiales por cantidad.</p>
+          <div style="background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);border-radius:8px;padding:.5rem .9rem;display:inline-block;font-size:.78rem;font-weight:700;color:var(--green3)">💬 Consultá precio mayorista</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <p style="color:var(--text3);font-size:.85rem;margin-bottom:1rem">¿Querés saber más? Escribinos ahora y te damos los mejores precios 👇</p>
+      <a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20consultar%20precios%20mayoristas%20🏪" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;background:#25d366;color:#fff;padding:13px 30px;border-radius:12px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.35)"><i class="fab fa-whatsapp"></i> Consultar precios mayoristas</a>
+    </div>
+  </div>
+</div>
+
 
 <div class="servicios-wrap">
   <div class="section">
@@ -351,44 +390,6 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
     </div>
     <div id="ofertas-mas" style="text-align:center;margin-top:1.3rem;display:none">
       <button onclick="verMasOfertas()" class="btn btn-ghost" style="padding:9px 22px"><i class="fas fa-chevron-down"></i> Ver más</button>
-    </div>
-  </div>
-</div>
-
-<!-- FLYER MAYORISTA -->
-<div style="background:linear-gradient(135deg,#07070c 0%,#0a0e1a 50%,#07070c 100%);border-top:2px solid rgba(255,214,0,.3);border-bottom:2px solid rgba(255,214,0,.3);padding:3rem 1.5rem;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(255,214,0,.06),transparent 70%);pointer-events:none"></div>
-  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1">
-    <div style="text-align:center;margin-bottom:2rem">
-      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,214,0,.12);border:1px solid rgba(255,214,0,.4);border-radius:99px;padding:6px 20px;font-size:.75rem;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem">
-        <i class="fas fa-boxes"></i> VENTA MAYORISTA
-      </div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,6vw,3.5rem);letter-spacing:2px;color:var(--text);line-height:1;margin-bottom:.6rem">🏪 ¿Comprás en cantidad?<br><span style="color:var(--gold)">Tenemos precio mayorista</span></h2>
-      <p style="color:var(--text2);font-size:1rem;max-width:600px;margin:0 auto">Comprá más y ahorrá más. Ideal para revendedores, eventos y comercios.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-bottom:2rem">
-      <!-- Card bulto cerrado -->
-      <div style="background:var(--panel);border:1px solid rgba(255,214,0,.25);border-radius:18px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(255,214,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,214,0,.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📦</div>
-        <div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;color:var(--gold);margin-bottom:.3rem">BULTO CERRADO</h3>
-          <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem">Comprando por <strong style="color:var(--text)">bulto o por caja cerrada</strong> obtenés un <strong style="color:var(--gold)">10% de descuento</strong> en todos nuestros productos.</p>
-          <div style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:.5rem .9rem;display:inline-block;font-size:.78rem;font-weight:700;color:var(--gold)">🏷️ -10% OFF por bulto cerrado</div>
-        </div>
-      </div>
-      <!-- Card Fernet + Coca -->
-      <div style="background:var(--panel);border:1px solid rgba(37,211,102,.25);border-radius:18px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(37,211,102,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="width:52px;height:52px;border-radius:14px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">🍾</div>
-        <div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;color:var(--green3);margin-bottom:.3rem">FERNET + COCA 2.5L</h3>
-          <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem">Venta mayorista de <strong style="color:var(--text)">Fernet y Coca-Cola 2.5L</strong> por mayor. Precios especiales por cantidad.</p>
-          <div style="background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);border-radius:8px;padding:.5rem .9rem;display:inline-block;font-size:.78rem;font-weight:700;color:var(--green3)">💬 Consultá precio mayorista</div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <p style="color:var(--text3);font-size:.85rem;margin-bottom:1rem">¿Querés saber más? Escribinos ahora y te damos los mejores precios 👇</p>
-      <a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20consultar%20precios%20mayoristas%20🏪" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;background:#25d366;color:#fff;padding:13px 30px;border-radius:12px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.35)"><i class="fab fa-whatsapp"></i> Consultar precios mayoristas</a>
     </div>
   </div>
 </div>
