@@ -233,7 +233,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
   <div class="hero-stats">
     <div class="hero-stat"><strong id="statProds">+8000</strong><span>Productos</span></div>
     <div class="hero-stat"><strong>10 km</strong><span>Delivery</span></div>
-    <div class="hero-stat"><strong>6 días</strong><span>Abierto</span></div>
+    <div class="hero-stat"><strong>7 días</strong><span>Abierto</span></div>
     <div class="hero-stat"><strong>💳</strong><span>Todos los pagos</span></div>
   </div>
   <div class="hero-chips">
@@ -355,6 +355,44 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
   </div>
 </div>
 
+<!-- FLYER MAYORISTA -->
+<div style="background:linear-gradient(135deg,#07070c 0%,#0a0e1a 50%,#07070c 100%);border-top:2px solid rgba(255,214,0,.3);border-bottom:2px solid rgba(255,214,0,.3);padding:3rem 1.5rem;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(255,214,0,.06),transparent 70%);pointer-events:none"></div>
+  <div style="max-width:1100px;margin:0 auto;position:relative;z-index:1">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,214,0,.12);border:1px solid rgba(255,214,0,.4);border-radius:99px;padding:6px 20px;font-size:.75rem;font-weight:800;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem">
+        <i class="fas fa-boxes"></i> VENTA MAYORISTA
+      </div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,6vw,3.5rem);letter-spacing:2px;color:var(--text);line-height:1;margin-bottom:.6rem">🏪 ¿Comprás en cantidad?<br><span style="color:var(--gold)">Tenemos precio mayorista</span></h2>
+      <p style="color:var(--text2);font-size:1rem;max-width:600px;margin:0 auto">Comprá más y ahorrá más. Ideal para revendedores, eventos y comercios.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-bottom:2rem">
+      <!-- Card bulto cerrado -->
+      <div style="background:var(--panel);border:1px solid rgba(255,214,0,.25);border-radius:18px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(255,214,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,214,0,.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">📦</div>
+        <div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;color:var(--gold);margin-bottom:.3rem">BULTO CERRADO</h3>
+          <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem">Comprando por <strong style="color:var(--text)">bulto o por caja cerrada</strong> obtenés un <strong style="color:var(--gold)">10% de descuento</strong> en todos nuestros productos.</p>
+          <div style="background:rgba(255,214,0,.08);border:1px solid rgba(255,214,0,.2);border-radius:8px;padding:.5rem .9rem;display:inline-block;font-size:.78rem;font-weight:700;color:var(--gold)">🏷️ -10% OFF por bulto cerrado</div>
+        </div>
+      </div>
+      <!-- Card Fernet + Coca -->
+      <div style="background:var(--panel);border:1px solid rgba(37,211,102,.25);border-radius:18px;padding:1.6rem;display:flex;gap:1.1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(37,211,102,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">🍾</div>
+        <div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:1px;color:var(--green3);margin-bottom:.3rem">FERNET + COCA 2.5L</h3>
+          <p style="font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:.6rem">Venta mayorista de <strong style="color:var(--text)">Fernet y Coca-Cola 2.5L</strong> por mayor. Precios especiales por cantidad.</p>
+          <div style="background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);border-radius:8px;padding:.5rem .9rem;display:inline-block;font-size:.78rem;font-weight:700;color:var(--green3)">💬 Consultá precio mayorista</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <p style="color:var(--text3);font-size:.85rem;margin-bottom:1rem">¿Querés saber más? Escribinos ahora y te damos los mejores precios 👇</p>
+      <a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20consultar%20precios%20mayoristas%20🏪" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5rem;background:#25d366;color:#fff;padding:13px 30px;border-radius:12px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.35)"><i class="fab fa-whatsapp"></i> Consultar precios mayoristas</a>
+    </div>
+  </div>
+</div>
+
 <div class="section" id="catalogo">
   <div class="sec-badge"><i class="fas fa-boxes"></i> Todos los productos</div>
   <h2 class="sec-title">Catálogo completo</h2>
@@ -376,7 +414,12 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
     <p class="sec-sub">Siempre cerca para lo que necesitás</p>
     <div class="info-grid">
       <div class="info-card"><div class="info-card-ico" style="background:rgba(212,30,30,.1)"><i class="fas fa-map-marker-alt" style="color:var(--red)"></i></div><h3>Dirección</h3><p>Severo del Castillo y Durand<br>Los Corralitos, Mendoza<br><a href="https://maps.google.com/?q=Los+Corralitos+Mendoza" target="_blank" rel="noopener" style="color:var(--red3)"><i class="fas fa-directions"></i> Cómo llegar</a></p></div>
-      <div class="info-card"><div class="info-card-ico" style="background:rgba(255,214,0,.1)"><i class="fas fa-clock" style="color:var(--gold)"></i></div><h3>Horarios</h3><p>Lunes a Sábados: 8:30 – 00:00<br>Domingos y Feriados: 10:00 – 22:00<br><span id="estadoLocal" style="color:var(--green3);font-size:.78rem">✅ Abierto ahora</span></p></div>
+      <div class="info-card" style="border-color:rgba(255,214,0,.3);background:linear-gradient(135deg,var(--panel),rgba(255,214,0,.04))"><div class="info-card-ico" style="background:rgba(255,214,0,.15);width:52px;height:52px"><i class="fas fa-clock" style="color:var(--gold);font-size:1.3rem"></i></div><h3 style="font-size:1rem;margin-bottom:.8rem">🕐 Horarios de atención</h3>
+        <p style="font-size:1rem;line-height:2;font-weight:600">Lunes a Sábados<br><span style="color:var(--gold);font-size:1.15rem;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">8:30 hs – 00:00 hs</span></p>
+        <p style="font-size:1rem;line-height:2;font-weight:600;margin-top:.5rem">Domingos y Feriados<br><span style="color:var(--gold);font-size:1.15rem;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">10:00 hs – 22:00 hs</span></p>
+        <p style="margin-top:.7rem"><span id="estadoLocal" style="color:var(--green3);font-size:.9rem;font-weight:700">✅ Abierto ahora</span></p>
+        <p style="margin-top:.5rem;font-size:.82rem;color:var(--text3)">🛵 Delivery: 10:00 – 23:30 hs</p>
+      </div>
       <div class="info-card"><div class="info-card-ico" style="background:rgba(37,211,102,.1)"><i class="fab fa-whatsapp" style="color:#25d366"></i></div><h3>Contacto directo</h3>
         <div class="social-btns">
           <a href="https://wa.me/5492617617618" target="_blank" rel="noopener" class="social-btn wa"><i class="fab fa-whatsapp"></i><span><strong>WhatsApp</strong><small>261 761-7618</small></span></a>
@@ -564,15 +607,77 @@ async function sendChat(){
   msgs.innerHTML+='<div class="chat-msg bot" id="'+tid+'"><i class="fas fa-circle-notch fa-spin" style="opacity:.4"></i></div>';
   msgs.scrollTop=msgs.scrollHeight;
   const db=getDB();
-  const prods=(db.productos||[]).filter(p=>p.pre>0);
-  const of=(db.productos||[]).filter(p=>p.ofe==='si'&&p.pre>0).slice(0,10).map(p=>p.nom+' $'+monFmt(p.pre)).join(', ');
+  const prods=(_productosCache||[]).filter(p=>p.pre>0);
+  const of=(_productosCache||[]).filter(p=>p.ofe==='si'&&p.pre>0).slice(0,8).map(p=>p.nom+' $'+monFmt(p.pre)).join(', ');
+  const _key = localStorage.getItem('bs_anthropic_key')||'';
+
+  // Si no hay API key, usar respuestas inteligentes locales
+  if(!_key){
+    const r=respuestaLocal(msg, prods, of);
+    await new Promise(res=>setTimeout(res,600));
+    document.getElementById(tid).innerHTML=r.replace(/\n/g,'<br>');
+    msgs.scrollTop=msgs.scrollHeight;
+    return;
+  }
+
   try{
-    const _key = localStorage.getItem('bs_anthropic_key')||'';
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':_key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,system:'Sos Sabori, vendedor/a virtual de Buenos Sabores Supermarket & Drugstore, Los Corralitos, Mendoza. Respondés en español argentino informal, sos simpático/a, pro-activo/a y orientado/a a vender. SIEMPRE intentás cerrar la venta o motivar al cliente a comprar.\n\nINFO DEL LOCAL:\n- Tenemos '+prods.length+' productos disponibles\n- Ofertas del día: '+(of||'consultanos por WhatsApp')+'\n- Horarios: Lun-Sáb 8:30 hasta medianoche · Dom y feriados 10:00-22:00\n- WhatsApp: 2617617618\n\nDELIVERY:\n- Costo base: $2.000 (hasta 1km)\n- Cada km extra: +$1.000\n- Ejemplos: 2km=$3.000 · 3km=$4.000 · 5km=$6.000 · 10km=$11.000\n- Horario delivery: 10:00 a 23:30\n- Cobertura: hasta 10 km\n- PAGOS DELIVERY: solo medios electrónicos (transferencia, Mercado Pago, Modo, débito, crédito)\n- PAGOS EN LOCAL: todos los medios incluyendo efectivo\n\nREGLAS:\n1. Respondé la consulta CON INFO ÚTIL y CONCRETA\n2. Si preguntan por un producto, deciles el precio si lo sabés o que lo consultemos por WhatsApp\n3. Siempre cerrá con una invitación a comprar o pedir\n4. No solo des info: VENDÉ. Ej: "¡Perfecto! ¿Lo pedimos ahora por WhatsApp?"\n5. Respuestas cortas y directas, máximo 3-4 oraciones\n6. Si calculan delivery, dales el monto exacto',messages:[{role:'user',content:msg}]})});
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':_key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,system:'Sos Sabori, vendedor/a virtual de Buenos Sabores Supermarket & Drugstore, Los Corralitos, Mendoza. Respondés en español argentino informal, sos simpático/a, pro-activo/a y orientado/a a vender. SIEMPRE intentás cerrar la venta o motivar al cliente a comprar.\n\nINFO DEL LOCAL:\n- Tenemos '+prods.length+' productos disponibles\n- Ofertas del día: '+(of||'consultanos por WhatsApp')+'\\n- Horarios: Lun-Sáb 8:30 hasta medianoche · Dom y feriados 10:00-22:00\n- WhatsApp: 2617617618\n\nDELIVERY:\n- Costo base: $2.000 (hasta 1km)\n- Cada km extra: +$1.000\n- Ejemplos: 2km=$3.000 · 3km=$4.000 · 5km=$6.000 · 10km=$11.000\n- Horario delivery: 10:00 a 23:30\n- Cobertura: hasta 10 km\n- PAGOS DELIVERY: solo medios electrónicos (transferencia, Mercado Pago, Modo, débito, crédito)\n- PAGOS EN LOCAL: todos los medios incluyendo efectivo\n\nMAYORISTA:\n- Bulto cerrado: 10% de descuento en cualquier producto\n- Fernet + Coca 2.5L: venta mayorista, consultar precio\n\nREGLAS:\n1. Respondé la consulta CON INFO ÚTIL y CONCRETA\n2. Si preguntan por un producto buscalo en la lista y decí el precio\n3. Siempre cerrá con una invitación a comprar o pedir\n4. No solo des info: VENDÉ. Ej: "¡Perfecto! ¿Lo pedimos ahora?"\n5. Respuestas cortas y directas, máximo 3-4 oraciones\n6. Si calculan delivery, dales el monto exacto\n7. NUNCA digas solo "escribanos al WhatsApp" — primero respondé la pregunta',messages:[{role:'user',content:msg}]})});
     const data=await res.json();
-    document.getElementById(tid).innerHTML=(data.content?.[0]?.text||'Escribinos al WhatsApp 2617617618 😊').replace(/\n/g,'<br>');
-  }catch(e){document.getElementById(tid).textContent='Escribinos al WhatsApp 2617617618 para consultas 😊';}
+    const txt=data.content?.[0]?.text;
+    if(txt){
+      document.getElementById(tid).innerHTML=txt.replace(/\n/g,'<br>');
+    } else {
+      document.getElementById(tid).innerHTML=respuestaLocal(msg,prods,of).replace(/\n/g,'<br>');
+    }
+  }catch(e){
+    document.getElementById(tid).innerHTML=respuestaLocal(msg,prods,of).replace(/\n/g,'<br>');
+  }
   msgs.scrollTop=msgs.scrollHeight;
+}
+
+function respuestaLocal(msg, prods, of){
+  const q=msg.toLowerCase();
+  // Delivery
+  const kmMatch=q.match(/(\d+[\.,]?\d*)\s*km/);
+  if(kmMatch||(q.includes('delivery')||q.includes('envío')||q.includes('envio')||q.includes('a domicilio'))){
+    if(kmMatch){
+      const km=parseFloat(kmMatch[1].replace(',','.'));
+      if(km>10) return '😔 Por el momento hacemos delivery hasta 10 km. ¿Estás dentro de esa zona? ¡Escribinos al 261 761-7618 para confirmarlo!';
+      const total=2000+Math.max(0,Math.ceil((km-1)*2)*500);
+      return '🛵 El delivery a '+km+' km te sale $'+total.toLocaleString('es-AR')+'.\nHorario: 10:00 a 23:30 hs · Pagos solo electrónicos (Mercado Pago, transferencia, débito, crédito).\n¿Hacemos el pedido ahora? <a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20pedir%20delivery%20a%20'+km+'km%20($'+total.toLocaleString('es-AR')+')" target="_blank" style="color:#25d366">→ Pedilo por WhatsApp</a>';
+    }
+    return '🛵 Hacemos delivery hasta 10 km · Horario: 10:00–23:30 hs.\n💰 Costo base $2.000 (1km) + $1.000 por km extra.\n💳 Pagos solo electrónicos. ¿A cuántos km estás para calcularte el costo exacto?';
+  }
+  // Horario
+  if(q.includes('horario')||q.includes('abierto')||q.includes('abren')||q.includes('cierran')||q.includes('hora')){
+    return '🕐 Estamos abiertos:\n• Lunes a Sábados: 8:30 hasta medianoche (00:00)\n• Domingos y feriados: 10:00 a 22:00\n¡Siempre cerca para lo que necesitás! ¿Querés hacer un pedido?';
+  }
+  // Mayorista
+  if(q.includes('mayor')||q.includes('bulto')||q.includes('por caja')||q.includes('cantidad')){
+    return '📦 ¡Sí! Vendemos por mayor:\n• Bulto o caja cerrada: 10% de descuento en cualquier producto\n• Fernet + Coca 2.5L: precio mayorista especial\nEscribinos para coordinar: <a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20consultar%20precio%20mayorista" target="_blank" style="color:#25d366">261 761-7618</a>';
+  }
+  // Fernet
+  if(q.includes('fernet')||q.includes('coca')||q.includes('bebida')){
+    return '🍾 Tenemos Fernet y Coca-Cola 2.5L con precio mayorista especial por cantidad.\nConsultanos el precio por WhatsApp: <a href="https://wa.me/5492617617618?text=Hola!%20Cuánto%20sale%20el%20Fernet%20y%20Coca%202.5L?" target="_blank" style="color:#25d366">261 761-7618</a> ¡Te respondemos al toque!';
+  }
+  // Pagos
+  if(q.includes('pago')||q.includes('efectivo')||q.includes('mercado pago')||q.includes('tarjeta')||q.includes('transferencia')){
+    return '💳 En el local aceptamos todos los medios:\nEfectivo · Débito · Crédito · Mercado Pago · Modo · Transferencia.\n🛵 Para delivery: solo medios electrónicos (sin efectivo).\n¿Querés hacer un pedido?';
+  }
+  // Ofertas
+  if(q.includes('oferta')||q.includes('promo')||q.includes('descuento')||q.includes('precio')){
+    if(of) return '🔥 Ofertas de hoy: '+of+'.\n¿Te interesa alguno? ¡Lo reservamos ahora! <a href="https://wa.me/5492617617618?text=Hola!%20Vi%20las%20ofertas%20en%20la%20web" target="_blank" style="color:#25d366">→ WhatsApp</a>';
+    return '🔥 Las ofertas se actualizan seguido. Pasate por la web o escribinos y te contamos qué hay hoy: <a href="https://wa.me/5492617617618" target="_blank" style="color:#25d366">261 761-7618</a>';
+  }
+  // Productos / busqueda
+  if(prods.length>0){
+    const found=prods.filter(p=>p.nom&&p.nom.toLowerCase().includes(q)).slice(0,3);
+    if(found.length){
+      return '✅ Encontré estos productos:\n'+found.map(p=>'• '+p.nom+' — $'+monFmt(p.pre)).join('\n')+'\n¿Lo pedimos? <a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20'+encodeURIComponent(found[0].nom)+'" target="_blank" style="color:#25d366">→ WhatsApp</a>';
+    }
+  }
+  // Default
+  return '¡Hola! Soy Sabori 👋 Te puedo ayudar con:\n🕐 Horarios · 🛵 Delivery y precios · 📦 Compras por mayor · 🔥 Ofertas del día.\n¿Sobre qué te consulto?';
 }
 function calcDelivery(){
   const km = parseFloat(document.getElementById('deliveryKm').value);
