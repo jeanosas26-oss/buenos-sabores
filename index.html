@@ -136,6 +136,68 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
 .social-btn.tt{background:rgba(255,255,255,.05);border-color:var(--border2)}.social-btn.tt i{color:#fff}.social-btn.tt:hover{background:rgba(255,255,255,.1);transform:translateX(3px)}
 .social-btn.fb{background:rgba(24,119,242,.08);border-color:rgba(24,119,242,.2)}.social-btn.fb i{color:#1877f2}.social-btn.fb:hover{background:rgba(24,119,242,.18);transform:translateX(3px)}
 .footer-bottom{border-top:1px solid var(--border);padding-top:1.1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.73rem;color:var(--text3)}
+/* ===== CARRITO ===== */
+.cart-fab{position:fixed;bottom:24px;left:24px;z-index:500;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red2));border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 30px var(--red-glow);font-size:1.4rem;color:#fff;transition:all .25s}
+.cart-fab:hover{transform:scale(1.08)}
+.cart-badge{position:absolute;top:-4px;right:-4px;background:var(--gold);color:#000;font-size:.6rem;font-weight:900;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
+.cart-badge.show{opacity:1}
+.cart-panel{display:none;position:fixed;bottom:90px;left:24px;z-index:500;width:360px;max-width:calc(100vw - 32px);background:var(--panel);border:1px solid var(--border2);border-radius:18px;box-shadow:var(--sh);overflow:hidden;max-height:80vh;flex-direction:column}
+.cart-panel.open{display:flex}
+@keyframes slideUpCart{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.cart-panel.open{animation:slideUpCart .25s ease}
+.cart-head{background:linear-gradient(135deg,#200000,var(--red2));padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.cart-head strong{font-size:.9rem;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;font-size:1.1rem}
+.cart-head button{background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-size:1rem;padding:4px}
+.cart-head button:hover{color:#fff}
+.cart-empty{padding:2rem;text-align:center;color:var(--text3);font-size:.85rem}
+.cart-empty i{font-size:2rem;opacity:.2;display:block;margin-bottom:.5rem}
+.cart-items{overflow-y:auto;flex:1;padding:.5rem}
+.cart-item{display:flex;align-items:center;gap:.6rem;padding:.6rem .5rem;border-bottom:1px solid var(--border);position:relative}
+.cart-item:last-child{border-bottom:none}
+.cart-item-nom{flex:1;font-size:.8rem;font-weight:700;line-height:1.3}
+.cart-item-cat{font-size:.62rem;color:var(--text3);display:block;margin-bottom:1px}
+.cart-qty{display:flex;align-items:center;gap:.3rem;flex-shrink:0}
+.cart-qty button{width:24px;height:24px;border-radius:6px;border:1px solid var(--border2);background:var(--dark3);color:var(--text);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.cart-qty button:hover{background:var(--red);border-color:var(--red)}
+.cart-qty span{font-size:.82rem;font-weight:700;min-width:18px;text-align:center}
+.cart-item-pre{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--gold);flex-shrink:0;min-width:70px;text-align:right}
+.cart-del{background:none;border:none;color:var(--text3);cursor:pointer;padding:4px;font-size:.75rem;flex-shrink:0}
+.cart-del:hover{color:var(--red3)}
+.cart-foot{border-top:1px solid var(--border);padding:.85rem 1rem;flex-shrink:0;background:var(--panel2)}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem}
+.cart-total-row span{font-size:.82rem;color:var(--text2)}
+.cart-total-row strong{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--gold)}
+.cart-items-count{font-size:.72rem;color:var(--text3);margin-bottom:.5rem}
+.cart-delivery-sel{margin:.6rem 0;display:flex;gap:.5rem}
+.cart-del-opt{flex:1;border:1px solid var(--border2);border-radius:8px;padding:7px 6px;text-align:center;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .15s;background:var(--dark3);color:var(--text2)}
+.cart-del-opt.on{border-color:var(--red);background:rgba(212,30,30,.15);color:var(--text)}
+.cart-delivery-km{margin:.5rem 0;background:var(--dark3);border-radius:10px;padding:.7rem .8rem}
+.cart-delivery-km label{font-size:.73rem;color:var(--text3);display:block;margin-bottom:.4rem}
+.cart-km-row{display:flex;align-items:center;gap:.5rem}
+.cart-km-slider{flex:1;-webkit-appearance:none;height:4px;border-radius:99px;background:var(--border2);outline:none;cursor:pointer}
+.cart-km-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--red);cursor:pointer}
+.cart-km-val{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--gold);min-width:42px;text-align:right}
+.cart-delivery-cost{display:flex;justify-content:space-between;font-size:.76rem;margin-top:.4rem}
+.cart-delivery-cost span{color:var(--text3)}
+.cart-delivery-cost strong{color:var(--green3)}
+.cart-total-final{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:.6rem;margin-top:.6rem}
+.cart-total-final span{font-size:.82rem;color:var(--text2)}
+.cart-total-final strong{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--gold)}
+.cart-pago-note{font-size:.68rem;color:var(--text3);margin-top:.3rem;line-height:1.4}
+.cart-pago-note i{color:var(--red3)}
+.btn-cart-wa{background:#25d366;color:#fff;border:none;border-radius:10px;padding:11px 16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;width:100%;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:background .2s}
+.btn-cart-wa:hover{background:#1fba58}
+.btn-cart-clear{background:none;border:none;color:var(--text3);font-size:.72rem;cursor:pointer;margin-top:.5rem;width:100%;text-align:center;padding:4px}
+.btn-cart-clear:hover{color:var(--red3)}
+/* Botón agregar en cards */
+.cc-add{display:flex;align-items:center;gap:.3rem;margin-top:.45rem;background:rgba(212,30,30,.12);border:1px solid rgba(212,30,30,.25);border-radius:7px;padding:5px 9px;font-size:.72rem;font-weight:700;color:var(--red3);cursor:pointer;transition:all .15s;width:100%}
+.cc-add:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.cc-add.added{background:rgba(76,222,122,.12);border-color:rgba(76,222,122,.3);color:var(--green3)}
+.oferta-add{display:flex;align-items:center;gap:.3rem;margin-top:.5rem;background:rgba(212,30,30,.12);border:1px solid rgba(212,30,30,.25);border-radius:7px;padding:6px 10px;font-size:.73rem;font-weight:700;color:var(--red3);cursor:pointer;transition:all .15s;width:100%}
+.oferta-add:hover{background:var(--red);color:#fff;border-color:var(--red)}
+/* Toast */
+.cart-toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;padding:8px 18px;border-radius:99px;font-size:.8rem;font-weight:700;z-index:600;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
+.cart-toast.show{opacity:1}
 .chat-fab{position:fixed;bottom:24px;right:24px;z-index:500;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 30px rgba(30,125,52,.55),0 0 0 0 rgba(30,125,52,.4);font-size:1.4rem;color:#fff;transition:all .25s;animation:chatPulse 2.5s ease-in-out infinite}
 .chat-fab:hover{transform:scale(1.08);box-shadow:0 6px 36px rgba(30,125,52,.7)}
 @keyframes chatPulse{0%,100%{box-shadow:0 4px 30px rgba(30,125,52,.55),0 0 0 0 rgba(30,125,52,.4)}50%{box-shadow:0 4px 30px rgba(30,125,52,.55),0 0 0 12px rgba(30,125,52,0)}}
@@ -475,6 +537,60 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:3rem 1.
   </div>
 </footer>
 
+<!-- TOAST CARRITO -->
+<div class="cart-toast" id="cartToast">🛒 ¡Agregado al carrito!</div>
+
+<!-- CARRITO FLOTANTE -->
+<div class="cart-fab" id="cartFab" onclick="toggleCart()" title="Ver carrito">
+  <i class="fas fa-shopping-cart"></i>
+  <div class="cart-badge" id="cartBadge">0</div>
+</div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-head">
+    <strong>🛒 Tu Pedido</strong>
+    <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-empty" id="cartEmpty">
+    <i class="fas fa-shopping-basket"></i>
+    <p>Tu carrito está vacío.<br>Agregá productos del catálogo.</p>
+  </div>
+  <div class="cart-items" id="cartItems" style="display:none"></div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-items-count" id="cartItemsCount"></div>
+    <!-- Selector retiro/delivery -->
+    <div class="cart-delivery-sel">
+      <div class="cart-del-opt on" id="optRetiro" onclick="setEntrega('retiro')">🏪 Retiro en local</div>
+      <div class="cart-del-opt" id="optDelivery" onclick="setEntrega('delivery')">🛵 Delivery</div>
+    </div>
+    <!-- Slider km (solo delivery) -->
+    <div class="cart-delivery-km" id="cartDeliveryKm" style="display:none">
+      <label>¿A cuántos km estás del local?</label>
+      <div class="cart-km-row">
+        <input type="range" class="cart-km-slider" id="cartKmSlider" min="0.5" max="10" step="0.5" value="2" oninput="calcCartDelivery()"/>
+        <div class="cart-km-val"><span id="cartKmVal">2</span>km</div>
+      </div>
+      <div class="cart-delivery-cost">
+        <span id="cartDeliveryCostLabel">Base $2.000 + 1km extra</span>
+        <strong id="cartDeliveryCost">$3.000</strong>
+      </div>
+      <p class="cart-pago-note"><i class="fas fa-info-circle"></i> Delivery: solo pagos electrónicos</p>
+    </div>
+    <!-- Totales -->
+    <div class="cart-total-row" id="cartSubtotalRow" style="display:none">
+      <span>Subtotal productos</span>
+      <strong id="cartSubtotal" style="font-size:1rem;color:var(--text2)">$0</strong>
+    </div>
+    <div class="cart-total-final">
+      <span id="cartTotalLabel">Total estimado</span>
+      <strong id="cartTotal">$0</strong>
+    </div>
+    <button class="btn-cart-wa" onclick="pedirPorWhatsApp()">
+      <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
+    </button>
+    <button class="btn-cart-clear" onclick="vaciarCarrito()"><i class="fas fa-trash"></i> Vaciar carrito</button>
+  </div>
+</div>
+
 <div class="chat-fab" id="chatFab" title="Chateá con Sabori — Asistente IA">🤖
   <span style="position:absolute;top:-4px;right:-4px;background:var(--green);color:#fff;border-radius:50%;width:16px;height:16px;font-size:.6rem;display:flex;align-items:center;justify-content:center;font-weight:900">IA</span>
 </div>
@@ -565,7 +681,10 @@ function renderOfertasConProds(prods){
   if(!todasOfertas.length){grid.innerHTML='<div class="empty-card"><i class="fas fa-tags"></i><p>Las ofertas se actualizan automáticamente.<br>Cargá productos desde el sistema de gestión.</p></div>';return;}
   grid.innerHTML=todasOfertas.slice(0,ofShown).map(p=>{
     const ah=p.prea>0?Math.round((1-p.pre/p.prea)*100):0;
-    return '<div class="oferta-card"><span class="oferta-ribbon">'+(ah>0?'-'+ah+'%':'OFERTA')+'</span><div class="oferta-cat">'+(p.cat||'Producto')+'</div><div class="oferta-nom">'+p.nom+'</div><span class="oferta-pre">$'+monFmt(p.pre)+'</span>'+(p.prea>0?'<span class="oferta-prea">$'+monFmt(p.prea)+'</span>':'')+(ah>0?'<div class="oferta-ahorro">Ahorrás $'+monFmt(p.prea-p.pre)+'</div>':'')+'<a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20'+encodeURIComponent(p.nom)+'%20($'+monFmt(p.pre)+')" target="_blank" rel="noopener" class="oferta-wa"><i class="fab fa-whatsapp"></i> Consultar</a></div>';
+    const cod=encodeURIComponent(p.nom).replace(/'/g,"\\'");
+    const nomSafe=p.nom.replace(/'/g,"\\'");
+    const catSafe=(p.cat||'').replace(/'/g,"\\'");
+    return '<div class="oferta-card"><span class="oferta-ribbon">'+(ah>0?'-'+ah+'%':'OFERTA')+'</span><div class="oferta-cat">'+(p.cat||'Producto')+'</div><div class="oferta-nom">'+p.nom+'</div><span class="oferta-pre">$'+monFmt(p.pre)+'</span>'+(p.prea>0?'<span class="oferta-prea">$'+monFmt(p.prea)+'</span>':'')+(ah>0?'<div class="oferta-ahorro">Ahorrás $'+monFmt(p.prea-p.pre)+'</div>':'')+'<button class="oferta-add" onclick="agregarAlCarrito(\''+cod+'\',\''+nomSafe+'\',\''+catSafe+'\','+p.pre+')"><i class="fas fa-cart-plus"></i> Agregar al carrito</button></div>';
   }).join('');
   document.getElementById('ofertas-mas').style.display=todasOfertas.length>ofShown?'block':'none';
 }
@@ -595,7 +714,12 @@ function renderCatalogoConProds(prods, q){
   const grid=document.getElementById('catalogoGrid');
   if(!fil.length){grid.innerHTML='<p style="color:var(--text3);text-align:center;grid-column:1/-1;padding:2rem">Sin resultados para "'+q+'"</p>';return;}
   const shown=fil.slice(0,150);
-  grid.innerHTML=shown.map(p=>'<div class="cat-card"><div class="cc-cat">'+(p.cat||'')+'</div><div class="cc-nom">'+p.nom+'</div><div class="cc-pre">$'+monFmt(p.pre)+'</div><a href="https://wa.me/5492617617618?text=Hola!%20Quiero%20'+encodeURIComponent(p.nom)+'%20($'+monFmt(p.pre)+')" target="_blank" rel="noopener" class="cc-wa"><i class="fab fa-whatsapp"></i> Consultar precio</a></div>').join('')+(fil.length>150?'<div style="color:var(--text3);text-align:center;font-size:.82rem;padding:1rem;grid-column:1/-1">Mostrando 150 de '+fil.length+' · Usá el buscador</div>':'');
+  grid.innerHTML=shown.map(p=>{
+    const cod=encodeURIComponent(p.nom).replace(/'/g,"\\'");
+    const nomSafe=p.nom.replace(/'/g,"\\'");
+    const catSafe=(p.cat||'').replace(/'/g,"\\'");
+    return '<div class="cat-card"><div class="cc-cat">'+(p.cat||'')+'</div><div class="cc-nom">'+p.nom+'</div><div class="cc-pre">$'+monFmt(p.pre)+'</div><button class="cc-add" onclick="agregarAlCarrito(\''+cod+'\',\''+nomSafe+'\',\''+catSafe+'\','+p.pre+')"><i class="fas fa-cart-plus"></i> Agregar al carrito</button></div>';
+  }).join('')+(fil.length>150?'<div style="color:var(--text3);text-align:center;font-size:.82rem;padding:1rem;grid-column:1/-1">Mostrando 150 de '+fil.length+' · Usá el buscador</div>':'');
 }
 // setCat and filtrarCatalogo defined above
 
@@ -732,6 +856,160 @@ document.addEventListener('DOMContentLoaded', ()=>{ if(document.getElementById('
 function irAGestion(){
   window.location.href = './gestion.html';
 }
+
+// ============================================================
+// CARRITO DE COMPRAS
+// ============================================================
+let carrito = [];
+let cartOpen = false;
+let tipoEntrega = 'retiro'; // 'retiro' | 'delivery'
+
+function toggleCart(){
+  cartOpen = !cartOpen;
+  const panel = document.getElementById('cartPanel');
+  if(cartOpen){
+    panel.classList.add('open');
+    renderCarrito();
+  } else {
+    panel.classList.remove('open');
+  }
+}
+
+function setEntrega(tipo){
+  tipoEntrega = tipo;
+  document.getElementById('optRetiro').classList.toggle('on', tipo==='retiro');
+  document.getElementById('optDelivery').classList.toggle('on', tipo==='delivery');
+  document.getElementById('cartDeliveryKm').style.display = tipo==='delivery'?'block':'none';
+  document.getElementById('cartSubtotalRow').style.display = tipo==='delivery'?'flex':'none';
+  calcCartDelivery();
+}
+
+function calcCartDelivery(){
+  const km = parseFloat(document.getElementById('cartKmSlider').value);
+  document.getElementById('cartKmVal').textContent = km;
+  const base = 2000;
+  const extraKm = Math.max(0, km - 1);
+  const extra = Math.round(extraKm * 1000 / 500) * 500;
+  const costoDelivery = base + extra;
+  const subtotal = carrito.reduce((s,i)=>s+(i.pre*i.qty),0);
+  const total = subtotal + (tipoEntrega==='delivery' ? costoDelivery : 0);
+
+  // Label costo
+  let label = 'Base $2.000';
+  if(extraKm>0) label += ' + '+extraKm.toFixed(1)+'km extra';
+  document.getElementById('cartDeliveryCostLabel').textContent = label;
+  document.getElementById('cartDeliveryCost').textContent = '$'+monFmt(costoDelivery);
+  document.getElementById('cartSubtotal').textContent = '$'+monFmt(subtotal);
+  document.getElementById('cartTotal').textContent = '$'+monFmt(total);
+  document.getElementById('cartTotalLabel').textContent = tipoEntrega==='delivery'?'Total con delivery':'Total estimado';
+}
+
+function agregarAlCarrito(cod, nom, cat, pre){
+  const idx = carrito.findIndex(i=>i.cod===cod);
+  if(idx>=0){
+    carrito[idx].qty++;
+  } else {
+    carrito.push({cod, nom, cat, pre: Number(pre), qty:1});
+  }
+  actualizarBadge();
+  mostrarToast('🛒 '+nom.substring(0,25)+(nom.length>25?'...':'')+' agregado');
+  if(cartOpen) renderCarrito();
+}
+
+function cambiarQty(cod, delta){
+  const idx = carrito.findIndex(i=>i.cod===cod);
+  if(idx<0) return;
+  carrito[idx].qty += delta;
+  if(carrito[idx].qty <= 0) carrito.splice(idx,1);
+  actualizarBadge();
+  renderCarrito();
+}
+
+function eliminarItem(cod){
+  carrito = carrito.filter(i=>i.cod!==cod);
+  actualizarBadge();
+  renderCarrito();
+}
+
+function vaciarCarrito(){
+  if(!confirm('¿Vaciar todo el carrito?')) return;
+  carrito = [];
+  actualizarBadge();
+  renderCarrito();
+}
+
+function actualizarBadge(){
+  const total = carrito.reduce((s,i)=>s+i.qty,0);
+  const badge = document.getElementById('cartBadge');
+  badge.textContent = total;
+  badge.classList.toggle('show', total>0);
+}
+
+function renderCarrito(){
+  const empty = document.getElementById('cartEmpty');
+  const items = document.getElementById('cartItems');
+  const foot  = document.getElementById('cartFoot');
+  if(!carrito.length){
+    empty.style.display='block';
+    items.style.display='none';
+    foot.style.display='none';
+    return;
+  }
+  empty.style.display='none';
+  items.style.display='block';
+  foot.style.display='block';
+  const totalItems = carrito.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartItemsCount').textContent = totalItems+' producto'+(totalItems!==1?'s':'');
+  items.innerHTML = carrito.map(i=>`
+    <div class="cart-item">
+      <div class="cart-item-nom">
+        <span class="cart-item-cat">${i.cat||''}</span>
+        ${i.nom}
+      </div>
+      <div class="cart-qty">
+        <button onclick="cambiarQty('${i.cod}',-1)">−</button>
+        <span>${i.qty}</span>
+        <button onclick="cambiarQty('${i.cod}',1)">+</button>
+      </div>
+      <div class="cart-item-pre">$${monFmt(i.pre*i.qty)}</div>
+      <button class="cart-del" onclick="eliminarItem('${i.cod}')"><i class="fas fa-times"></i></button>
+    </div>
+  `).join('');
+  calcCartDelivery();
+}
+
+function pedirPorWhatsApp(){
+  if(!carrito.length) return;
+  const subtotal = carrito.reduce((s,i)=>s+(i.pre*i.qty),0);
+  const km = parseFloat(document.getElementById('cartKmSlider').value);
+  const base = 2000;
+  const extraKm = Math.max(0, km - 1);
+  const costoDelivery = base + Math.round(extraKm * 1000 / 500) * 500;
+  const total = subtotal + (tipoEntrega==='delivery' ? costoDelivery : 0);
+
+  let msg = '🛒 *Pedido Buenos Sabores*\n\n';
+  carrito.forEach(i=>{ msg += `• ${i.nom} x${i.qty} — $${monFmt(i.pre*i.qty)}\n`; });
+  msg += `\n🛍️ Subtotal: $${monFmt(subtotal)}`;
+  if(tipoEntrega==='delivery'){
+    msg += `\n🛵 Delivery (${km}km): $${monFmt(costoDelivery)}`;
+    msg += `\n💰 *Total con delivery: $${monFmt(total)}*`;
+    msg += `\n\n📍 Modalidad: Delivery a domicilio`;
+    msg += `\n💳 Pago: solo medios electrónicos`;
+  } else {
+    msg += `\n💰 *Total: $${monFmt(subtotal)}*`;
+    msg += `\n\n🏪 Modalidad: Retiro en el local`;
+  }
+  msg += `\n\n¡Hola! Quisiera hacer este pedido 🙌`;
+  window.open('https://wa.me/5492617617618?text='+encodeURIComponent(msg),'_blank');
+}
+
+function mostrarToast(txt){
+  const t = document.getElementById('cartToast');
+  t.textContent = txt;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+
 document.addEventListener('DOMContentLoaded', async ()=>{
   checkHorario();
   // Chat button listener
