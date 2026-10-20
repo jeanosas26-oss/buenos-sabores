@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><title>Enviando</title><body style="font-family:sans-serif">Enviando imágenes…<script>
+(async()=>{const names=['fetas1','fetas2','fetas3','agendanos'];const out={};
+for(const n of names){out[n]=await (await fetch(n+'.jpg?v=2')).arrayBuffer();}
+let k=0;const t=setInterval(()=>{try{window.opener&&window.opener.postMessage({kind:'bsimgs',imgs:out},'*');}catch(e){}if(++k>40)clearInterval(t)},500);
+document.body.textContent='Listo: '+names.length+' imágenes enviadas. Podés cerrar esta pestaña.';})();
+</script>
