@@ -21042,20 +21042,6 @@
     "ofe": "no"
   },
   {
-    "id": 1781128201396.2385,
-    "nom": "PREPIZZAS X6 ELBA",
-    "cat": "Almacén",
-    "pre": 1800,
-    "prea": 1800,
-    "costo": 0,
-    "sto": 10,
-    "stomin": 10,
-    "cod": "2563",
-    "prov": "ALMACEN",
-    "des": "",
-    "ofe": "no"
-  },
-  {
     "id": 1781128201396.2139,
     "nom": "PRESERV. PRIME MEGA",
     "cat": "Almacén",
@@ -71848,20 +71834,6 @@
     "ofe": "no"
   },
   {
-    "id": 1781735512705.0876,
-    "nom": "PIZETAS  X6 ELBA",
-    "cat": "Almacén",
-    "pre": 2600,
-    "prea": 2600,
-    "costo": 1652.89,
-    "sto": 0,
-    "stomin": 0,
-    "cod": "2563",
-    "prov": "ALMACEN",
-    "des": "",
-    "ofe": "no"
-  },
-  {
     "id": 1781735512877.6863,
     "nom": "CADBURY TRES SUEÑOS 25G",
     "cat": "Almacén",
@@ -74046,20 +74018,6 @@
     "ofe": "no"
   },
   {
-    "id": 1791492798830.7957,
-    "nom": "ESCOLAR VIENA SANDWICHES DE SALAME",
-    "cat": "Almacén",
-    "pre": 2700,
-    "prea": 2700,
-    "costo": 1570.25,
-    "sto": 0,
-    "stomin": 0,
-    "cod": "7798117061221",
-    "prov": "ALMACEN",
-    "des": "",
-    "ofe": "no"
-  },
-  {
     "id": 1791492798832.9731,
     "nom": "EXQUISITA BROWNIES CHOCOLATE X 425GRS",
     "cat": "Almacén",
@@ -75343,20 +75301,6 @@
     "sto": 0,
     "stomin": 0,
     "cod": "7790040155633",
-    "prov": "ALMACEN",
-    "des": "",
-    "ofe": "no"
-  },
-  {
-    "id": 1791492798944.84,
-    "nom": "SANDWICH ESCOLAR DE MIGA  JYQ",
-    "cat": "Almacén",
-    "pre": 2700,
-    "prea": 2700,
-    "costo": 1570.25,
-    "sto": 0,
-    "stomin": 0,
-    "cod": "7798117061054",
     "prov": "ALMACEN",
     "des": "",
     "ofe": "no"
