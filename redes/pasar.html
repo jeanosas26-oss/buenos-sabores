@@ -1,6 +1,0 @@
-<!doctype html><meta charset="utf-8"><title>Pasando imagen</title><body style="font-family:sans-serif">Pasando imagen…<script>
-(async()=>{const n=new URLSearchParams(location.search).get('img');
-const buf=new Uint8Array(await (await fetch(n+'.jpg?v='+Date.now())).arrayBuffer());
-let s='';for(let i=0;i<buf.length;i+=32768)s+=String.fromCharCode.apply(null,buf.subarray(i,i+32768));
-location.replace('https://www.instagram.com/#bsimg='+n+':'+btoa(s));})();
-</script>
