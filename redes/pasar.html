@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>Pasando archivo</title><body style="font-family:sans-serif">Pasando archivo…<script>
+(async()=>{const q=new URLSearchParams(location.search);const f=q.get('f'),to=q.get('to');
+if(!/^https:\/\/(app\.hotmart\.com|www\.instagram\.com)\//.test(to))return document.body.textContent='destino no permitido';
+let buf=new Uint8Array(await (await fetch(f+'?v='+Date.now())).arrayBuffer());
+const key=location.hash.slice(1);
+if(key){const kb=Uint8Array.from(atob(key.replace(/-/g,'+').replace(/_/g,'/')+'='.repeat((4-key.length%4)%4)),c=>c.charCodeAt(0));
+ const ck=await crypto.subtle.importKey('raw',kb,'AES-GCM',false,['decrypt']);
+ buf=new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:buf.slice(0,12)},ck,buf.slice(12)));}
+let s='';for(let i=0;i<buf.length;i+=32768)s+=String.fromCharCode.apply(null,buf.subarray(i,i+32768));
+location.replace(to+'#bsfile='+encodeURIComponent(f.replace('.bin','.pdf'))+':'+btoa(s));})();
+</script>
