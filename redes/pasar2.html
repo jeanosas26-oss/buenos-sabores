@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>Pasando archivos</title><body style="font-family:sans-serif">Pasando archivos…<script>
+(async()=>{const q=new URLSearchParams(location.search);const fs=q.get('f').split(','),to=q.get('to');
+if(!/^https:\/\/(business\.facebook\.com|www\.instagram\.com)\//.test(to))return document.body.textContent='destino no permitido';
+const out=[];for(const f of fs){const buf=new Uint8Array(await (await fetch('sem/'+f+'?v='+Date.now())).arrayBuffer());
+let s='';for(let i=0;i<buf.length;i+=32768)s+=String.fromCharCode.apply(null,buf.subarray(i,i+32768));out.push(f+':'+btoa(s));}
+location.replace(to+'#bsfiles='+out.join('|'));})();
+</script>
