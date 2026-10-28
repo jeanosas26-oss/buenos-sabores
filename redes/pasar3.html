@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>Pasando</title><body style="font-family:sans-serif">Pasando…<script>
+(async()=>{const q=new URLSearchParams(location.search);const f=q.get('f'),i=+q.get('i'),to=q.get('to'),C=1400000;
+if(!/^https:\/\/www\.tiktok\.com\//.test(to))return document.body.textContent='destino no permitido';
+const buf=new Uint8Array(await (await fetch('sem/'+f+'?v='+Date.now())).arrayBuffer());
+let s='';for(let k=0;k<buf.length;k+=32768)s+=String.fromCharCode.apply(null,buf.subarray(k,k+32768));const b=btoa(s),n=Math.ceil(b.length/C);
+location.replace(to+'#bsc='+f+':'+i+':'+n+':'+b.slice(i*C,(i+1)*C));})();
+</script>
