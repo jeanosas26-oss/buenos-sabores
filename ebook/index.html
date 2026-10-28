@@ -96,6 +96,9 @@ footer{color:var(--mut);font-size:14px;padding:30px 0 90px;text-align:center}
  .cta{width:100%}
 }
 </style>
+<!-- Meta Pixel JEANO DIGITAL Ebook -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1631840488675908');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1631840488675908&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 <div class="top" id="promo">🔥 <b>30% OFF</b> de lanzamiento con el código <b>LANZAMIENTO30</b> · termina en <b id="cd">…</b></div>
@@ -253,7 +256,7 @@ footer{color:var(--mut);font-size:14px;padding:30px 0 90px;text-align:center}
 
 <script>
 const boxes=[...document.querySelectorAll('#qz input')],res=document.getElementById('res'),bar=document.getElementById('bar'),rt=document.getElementById('rt'),rx=document.getElementById('rx');
-function upd(){const n=boxes.filter(b=>b.checked).length;if(!n){res.classList.remove('on');return}res.classList.add('on');bar.style.width=(n/7*100)+'%';
+function upd(){const n=boxes.filter(b=>b.checked).length;if(!n){res.classList.remove('on');return}res.classList.add('on');if(!window._lead&&window.fbq){window._lead=1;fbq('track','Lead',{content_name:'Test comercio'})}bar.style.width=(n/7*100)+'%';
  if(n<=2){rt.textContent=n+' de 7: estás bastante ordenado';rx.textContent='El ebook te va a servir para automatizar y crecer sin perder ese orden.'}
  else if(n<=5){rt.textContent=n+' de 7: estás perdiendo ventas todos los días';rx.textContent='Con el método de las 3 piezas podés tapar estas fugas en 30 días.'}
  else{rt.textContent=n+' de 7: tu comercio necesita esto con urgencia';rx.textContent='Empezá por el plan de 30 días del capítulo 14. Es exactamente para tu caso.'}}
@@ -264,5 +267,6 @@ boxes.forEach(b=>b.addEventListener('change',upd));
 function t(){const d=end-Date.now();if(d<=0){pr.innerHTML='📘 Comercio en Piloto Automático · Descarga inmediata · Garantía de 7 días';document.querySelectorAll('a[href*="offDiscount"]').forEach(a=>a.href=a.href.replace('&offDiscount=LANZAMIENTO30',''));return}
 const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);cd.textContent=(D?D+'d ':'')+String(H).padStart(2,'0')+'h '+String(M).padStart(2,'0')+'m '+String(S).padStart(2,'0')+'s';setTimeout(t,1000)}t()})();
 </script>
+<script>document.querySelectorAll('[data-cta]').forEach(a=>a.addEventListener('click',()=>{if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Comercio en Piloto Automatico',value:11.9,currency:'USD'})}));</script>
 </body>
 </html>
