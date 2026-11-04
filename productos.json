@@ -14,6 +14,18 @@
     "ofe": "si"
   },
   {
+    "nom": "PROMO FERNET BRANCA 750CC + COCA COLA 2.5L",
+    "cat": "Bebidas",
+    "pre": 22000,
+    "prea": 22000,
+    "costo": 0,
+    "sto": 100,
+    "stomin": 0,
+    "cod": "PROMO-FERNET-750",
+    "des": "$21.000 en efectivo / $22.000 medios electronicos",
+    "ofe": "si"
+  },
+  {
     "id": 1781128201315.5288,
     "nom": "HELADO SLICE FRUTILLA 70 GR",
     "cat": "Electrónica",
