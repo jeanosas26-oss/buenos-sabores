@@ -1,0 +1,4 @@
+<!doctype html><meta charset="utf-8"><title>send</title><body>enviando…<script>
+const f=new URLSearchParams(location.search).get('f')||'promo-fernet-23000.jpg';
+fetch(f,{cache:'no-store'}).then(r=>r.blob()).then(b=>{(window.opener||parent).postMessage({bsimg:b,name:f},'*');document.body.textContent='ok '+b.size;setTimeout(()=>window.close(),1500)}).catch(e=>document.body.textContent='err '+e);
+</script>
