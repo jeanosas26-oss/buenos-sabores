@@ -1,0 +1,6 @@
+<!doctype html><meta charset="utf-8"><title>push</title><body style="font:20px sans-serif">
+<button id="b" style="font-size:30px;padding:20px">Abrir TikTok</button><div id="s"></div><script>
+const q=new URLSearchParams(location.search);const f=q.get('f');const to=q.get('to')||'https://www.tiktok.com/tiktokstudio/upload?from=creator_center&tab=video';
+let blob=null;fetch(f,{cache:'no-store'}).then(r=>r.blob()).then(b=>{blob=b;s.textContent='listo '+b.size});
+b.onclick=()=>{const w=window.open(to,'ttup');s.textContent+=' win:'+!!w;setInterval(()=>{try{w&&blob&&w.postMessage({bsimg:blob,name:f},'*')}catch(e){}},1500)};
+</script>
